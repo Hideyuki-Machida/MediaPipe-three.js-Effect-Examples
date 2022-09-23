@@ -1,4 +1,4 @@
-#MediaPipe+three.js Effect Examples
+# MediaPipe+three.js Effect Examples
 
 * [MediaPipe](https://google.github.io/mediapipe)
 * [three.js](https://threejs.org)
