@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
 		<style>
 			body {
 				margin: 0;
@@ -25,22 +26,45 @@
 
 		//////////////////////////////////////////////////
 		// Create Video & DeviceCamera
+		async function updateFrames() {
+			await selfieSegmentation.send({image: video});
+			const timer = performance.now();
+			effectObject.group.rotation.x = timer * 0.0002;
+			effectObject.group.rotation.y = timer * 0.0001;
+
+			effectObject.composer.render();
+
+			renderer.render(maskObj.scene, maskObj.camera);
+			stats.update();
+		}
+
+		const ua = navigator.userAgent;
+		var isSP = false
+		if(ua.indexOf("iPhone") > 0 || ua.indexOf("Android") > 0 && ua.indexOf("Mobile") > 0){
+			isSP = true;
+		}
+
 		const video = document.createElement( "video" );
-		const deviceCamera = new Camera(video, {
-			onFrame: async () => {
-				await selfieSegmentation.send({image: video});
-				const timer = performance.now();
-				effectObject.group.rotation.x = timer * 0.0002;
-				effectObject.group.rotation.y = timer * 0.0001;
+		video.playsInline = true;
 
-				effectObject.composer.render();
-
-				renderer.render(maskObj.scene, maskObj.camera);
-				stats.update();
-			},
-		});
-		const width = deviceCamera.g.width;
-		const height = deviceCamera.g.height;
+		var deviceCamera
+		var width;
+		var height;
+		if (isSP) {
+			deviceCamera = new Camera(video, {
+				onFrame: updateFrames,
+				width: 1280,
+				height: 720
+			});
+			width = 720;
+			height = 1280;
+		} else{
+			deviceCamera = new Camera(video, {
+				onFrame: updateFrames,
+			});
+			width = deviceCamera.g.width;
+			height = deviceCamera.g.height;
+		}
 		//////////////////////////////////////////////////
 
 		//////////////////////////////////////////////////
