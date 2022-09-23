@@ -6,8 +6,8 @@
 ## FaceMesh Effect Example
 [MediaPipe Face Mesh](https://google.github.io/mediapipe/solutions/face_mesh.html)
 
-* [Video Example](face_mesh/video.html)
-* [Camera Example](face_mesh/camera.html)
+* [Video Example](https://hideyuki-machida.github.io/MediaPipe-three.js-Effect-Examples/face_mesh/video.html)
+* [Camera Example](https://hideyuki-machida.github.io/MediaPipe-three.js-Effect-Examples/face_mesh/camera.html)
 
 <img src="img/img_facemesh_001.jpg" width="200">
 <img src="img/img_facemesh_002.jpg" width="200"><br />
@@ -21,8 +21,8 @@ video2: [https://www.pexels.com/video/a-man-posing-while-squatting-on-a-barstool
 ## Segmentation Effect Example
 [MediaPipe Selfie Segmentation](https://google.github.io/mediapipe/solutions/selfie_segmentation.html)
 
-* [Video Example](self_segmentation/video.html)
-* [Camera Example](self_segmentation/camera.html)
+* [Video Example](https://hideyuki-machida.github.io/MediaPipe-three.js-Effect-Examples/selfie_segmentation/video.html)
+* [Camera Example](https://hideyuki-machida.github.io/MediaPipe-three.js-Effect-Examples/selfie_segmentation/camera.html)
 
 
 <img src="img/img_segmentation_001.jpg" width="200">
